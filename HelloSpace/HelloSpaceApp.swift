@@ -11,7 +11,7 @@ import SwiftUI
 struct HelloSpaceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HelloView()
         }
     }
 }
