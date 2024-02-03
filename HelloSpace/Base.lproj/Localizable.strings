@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  HelloSpace
+
+  Created by Steve McCoole on 2/1/24.
+  Copyright © 2024 Steve McCoole. All rights reserved.
+*/
+
+"Hello.Title" = "Hello World!";
+"Hello.SubTitle" = "Nice to meet you!";

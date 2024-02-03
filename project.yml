@@ -1,0 +1,121 @@
+name: HelloSpace
+attributes:
+  ORGANIZATIONNAME: Steve McCoole
+options:
+  bundleIdPrefix: com.smm
+  deploymentTarget:
+    iOS: 15.0
+  defaultConfig: Release
+  localPackagesGroup: Local Packages
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    DEVELOPMENT_TEAM: JHUY87VM4A
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: 5.0
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
+  configs:
+      Debug:
+        MTL_ENABLE_DEBUG_INFO: INCLUDE_SOURCE
+      Release:
+        MTL_ENABLE_DEBUG_INFO: NO
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: RELEASE 
+schemes:
+  HelloSpace:
+    build:
+      targets:
+        HelloSpace: all
+    run:
+     targets:
+       - HelloSpace
+    test:
+      targets:
+        - HelloSpaceTests
+        - HelloSpaceUITests
+      environmentVariables:
+        - variable: IS_TEST
+          value: YES
+      gatherCoverageData: true
+packages:
+    SwiftGen:
+      url: https://github.com/SwiftGen/SwiftGen.git
+      majorVersion: 6.6.2
+    SwiftLint:
+      url: https://github.com/realm/SwiftLint.git
+      majorVersion: 0.54.0
+    SDWebImage:
+      url: https://github.com/SDWebImage/SDWebImage.git
+      majorVersion: 5.18.10
+    SFSafeSymbols:
+      url: https://github.com/SFSafeSymbols/SFSafeSymbols.git
+      majorVersion: 4.1.1
+targets:
+  HelloSpace:
+    type: application
+    platform: iOS
+    deploymentTarget: 15.0
+    sources:
+      - HelloSpace
+      - path: project.yml
+        name: project.yml
+        buildPhase: none
+      - path: swiftgen.yml
+        name: swiftgen.yml
+        buildPhase: none
+      - path: .swiftlint.yml
+        name: swiftlint.yml
+        buildPhase: none
+    settings:
+      base:
+        INFOPLIST_FILE: HelloSpace/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        PRODUCT_BUNDLE_IDENTIFIER: com.smm.HelloSpace
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: ${inherited}
+        PRODUCT_NAME: ${TARGET_NAME}
+        TARGETED_DEVICE_FAMILY: 1,2
+        # Disable the automatic Assets generation for Colors and Images as they
+        # can conflict with SwiftGen
+        ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: NO
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: NO
+        ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOL_FRAMEWORKS: ''
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    preBuildScripts:
+      - path: scripts/runSwiftGen.sh
+        name: SwiftGen
+        basedOnDependencyAnalysis: false
+    buildToolPlugins:
+        - plugin: SwiftLintPlugin
+          package: SwiftLint
+    dependencies:
+      # by default the package product that is linked to is the same as the package name
+      - package: SDWebImage
+      - package: SFSafeSymbols
+  HelloSpaceTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - HelloSpaceTests
+    settings:
+      base:
+        INFOPLIST_FILE: HelloSpaceTests/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: ${inherited}
+        PRODUCT_NAME: ${TARGET_NAME}
+    dependencies:
+      - target: HelloSpace
+  HelloSpaceUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - HelloSpaceUITests
+    settings:
+      base:
+        INFOPLIST_FILE: HelloSpaceUITests/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: ${inherited}
+        PRODUCT_NAME: ${TARGET_NAME}
+    dependencies:
+      - target: HelloSpace
