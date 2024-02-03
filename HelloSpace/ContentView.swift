@@ -19,7 +19,7 @@ struct ContentView: View {
                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
             Text(HSLocalized.Hello.title)
             Text(HSLocalized.Hello.subTitle)
-                .foregroundColor(HSLocalized.Assets.accentColor.swiftUIColor)
+                .foregroundColor(HSAsset.Assets.accentColor.swiftUIColor)
             // Show original picture from
             // https://www.nasa.gov/wp-content/uploads/2023/12/pia04609orig.jpg
             // On a second page in the branch?

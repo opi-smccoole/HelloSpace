@@ -68,6 +68,9 @@ targets:
       - path: .swiftlint.yml
         name: swiftlint.yml
         buildPhase: none
+      - path: README.md
+        name: README.md
+        buildPhase: none
     settings:
       base:
         INFOPLIST_FILE: HelloSpace/Info.plist
