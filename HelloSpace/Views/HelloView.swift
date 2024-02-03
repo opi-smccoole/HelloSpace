@@ -21,12 +21,12 @@ struct HelloView: View {
                 Text(HSLocalized.Hello.title)
                 Text(HSLocalized.Hello.subTitle)
                     .foregroundColor(HSAsset.Assets.accentColor.swiftUIColor)
-                    .padding()
                 Divider()
                     .padding()
                 NavigationLink(destination: SpaceView()) {
                     Label {
                         Text(HSLocalized.Button.seeSpace)
+                            .font(.custom(FontFamily.Orbitron.bold, size: 14))
                     } icon: {
                         Image(asset: HSAsset.Assets.telescope)
                             .resizable()
