@@ -46,9 +46,9 @@ packages:
     SwiftLint:
       url: https://github.com/realm/SwiftLint.git
       majorVersion: 0.54.0
-    SDWebImage:
-      url: https://github.com/SDWebImage/SDWebImage.git
-      majorVersion: 5.18.10
+    SDWebImageSwiftUI:
+      url: https://github.com/SDWebImage/SDWebImageSwiftUI.git
+      majorVersion: 2.2.6
     SFSafeSymbols:
       url: https://github.com/SFSafeSymbols/SFSafeSymbols.git
       majorVersion: 4.1.1
@@ -94,7 +94,7 @@ targets:
           package: SwiftLint
     dependencies:
       # by default the package product that is linked to is the same as the package name
-      - package: SDWebImage
+      - package: SDWebImageSwiftUI
       - package: SFSafeSymbols
   HelloSpaceTests:
     type: bundle.unit-test

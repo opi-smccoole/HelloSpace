@@ -34,6 +34,12 @@ xcassets:
         enumName: HSAsset
         publicAccess: true
 
+fonts:
+  inputs: HelloSpace/Fonts
+  outputs:
+    templateName: swift5
+    output: HelloSpace+Fonts.swift
+
 ## Generate constants for your storyboards and XIBs.
 ##   This one generates 2 output files, one containing the storyboard scenes, and another for the segues.
 ##    (You can remove the segues entry if you don't use segues in your IB files).

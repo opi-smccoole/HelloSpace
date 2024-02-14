@@ -27,6 +27,7 @@ public enum HSAsset {
   public enum Assets {
     public static let accentColor = ColorAsset(name: "AccentColor")
     public static let globeAtlantic = ImageAsset(name: "GlobeAtlantic")
+    public static let telescope = ImageAsset(name: "Telescope")
   }
   public enum PreviewAssets {
   }
